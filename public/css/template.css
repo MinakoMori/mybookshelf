@@ -1,0 +1,297 @@
+@charset "UTF-8";
+
+/*===========================
+template.css
+=============================*/
+
+.all-content {
+  margin: 3rem 0;
+}
+
+@media screen and (max-width: 640px) {
+  .all-content {
+    margin: 3rem 0 10rem;
+  }
+}
+
+/*見出し*/
+
+h1 {
+  margin: 0;
+  text-align: center;
+}
+
+h1::after {
+  margin: 10px auto 0;
+  display: block;
+  content: "";
+  width: 50px;
+  height: 5px;
+  background-color: #963131;
+}
+
+/*フォント*/
+
+h1,
+.navbar .navbar-brand,
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus,
+.navbar .nav-link,
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.disabled,
+.navbar .dropdown-item,
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus,
+footer ul li:before,
+footer ul li a,
+footer ul li a:hover,
+footer ul li a:focus {
+  color: #963131;
+}
+
+footer ul li a,
+footer ul li a:hover,
+footer ul li a:focus {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 640px) {
+  footer ul li a,
+  footer ul li a:hover,
+  footer ul li a:focus {
+    color: #fff;
+  }
+}
+
+/*ヘッダー*/
+
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.navbar .navbar-brand {
+  width: 200px;
+}
+
+.navbar .navbar-brand img {
+  width: 100%;
+}
+
+@media screen and (max-width: 640px) {
+  .navbar {
+    padding: 0.5rem 1rem 0.5rem 0.7rem;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .navbar .navbar-brand {
+    width: 55%;
+    margin: 0;
+  }
+
+  .nav-link {
+    max-width: 120px;
+    padding: 0.6rem 0 0.5rem;
+  }
+
+  .word-count {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+/*ドロップダウンメニュー*/
+
+#navbarSupportedContent ul {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  left: -22px;
+  min-width: 6rem;
+}
+
+.dropdown-item {
+  text-align: center;
+}
+
+/*フッター*/
+
+footer {
+  width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px 50px;
+}
+
+footer .arrow {
+  margin: 0 10px 10px auto;
+  display: block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #963131;
+  border-radius: 50%;
+  background-color: #f8fafc;
+}
+
+footer .arrow a {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 15px;
+  left: 11px;
+  border: 2px solid;
+  border-color: transparent transparent #963131 #963131;
+  transform: rotate(135deg);
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+footer ul.row {
+  margin: 0 auto;
+  padding: 0;
+  list-style-type: none;
+  align-items: center;
+}
+
+footer ul:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+footer ul li {
+  text-align: center;
+}
+
+footer ul li:before {
+  display: inline-block;
+  margin-right: 0.5em;
+  vertical-align: 0.1em;
+  content: "";
+  border-top: 0.3em solid transparent;
+  border-right: 0;
+  border-bottom: 0.3em solid transparent;
+  border-left: 0.3em solid;
+}
+
+footer ul li a img {
+  display: none;
+}
+
+@media screen and (max-width: 1140px) {
+  footer {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  footer {
+    position: fixed;
+    bottom: 0px;
+    z-index: 99;
+    margin: 0;
+    padding: 0;
+  }
+
+  footer ul.row {
+    padding: 10px 0 5px;
+    background-color: #540100;
+    font-size: 13px;
+  }
+
+  footer ul li {
+    border-right: 1px solid #fff;
+  }
+
+  footer ul li:last-child {
+    border-right: none;
+  }
+
+  footer ul li:before {
+    display: none;
+  }
+
+  footer ul li a img {
+    display: inherit;
+    width: 30px;
+  }
+
+  footer ul li:first-child a img {
+    width: 35px;
+    padding: 3px 0;
+  }
+
+  footer ul li a span {
+    display: block;
+    margin-top: 3px;
+  }
+}
+
+/*===========================
+login.css
+register.css
+welcome.css
+=============================*/
+
+/*見出し*/
+
+#login-page h1,
+#register-page h1 {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+#login-page h1::after,
+#register-page h1::after {
+  content: none;
+}
+
+/*ボタン*/
+
+#register-page .mb-0 {
+  margin-top: 30px;
+}
+
+/*===========================
+welcome.css
+=============================*/
+
+/*ボタン*/
+
+#welcome-page a:first-child {
+  margin-bottom: 20px;
+}
+
+#welcome-page .row {
+  margin: 75px auto 0;
+}
+
+#welcome-page .card-body {
+  padding: 0;
+}
+
+/*===========================
+bookshelf.css
+=============================*/
+
+/*見出し*/
+
+#bookshelf-page h1 {
+  font-size: 1.5rem;
+}
+
