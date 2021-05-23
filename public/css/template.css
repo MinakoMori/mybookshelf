@@ -5,19 +5,17 @@ template.css
 =============================*/
 
 .all-content {
-  margin: 3rem 0;
+  margin: 0;
 }
 
-@media screen and (max-width: 640px) {
-  .all-content {
-    margin: 3rem 0 10rem;
-  }
+.all-content .container {
+  margin: 50px auto 150px;
 }
 
 /*見出し*/
 
 h1 {
-  margin: 0;
+  margin: 0 0 30px;
   text-align: center;
 }
 
@@ -46,7 +44,8 @@ h1,
 footer ul li:before,
 footer ul li a,
 footer ul li a:hover,
-footer ul li a:focus {
+footer ul li a:focus,
+#books-create label {
   color: #963131;
 }
 
@@ -244,7 +243,6 @@ footer ul li a img {
 /*===========================
 login.css
 register.css
-welcome.css
 =============================*/
 
 /*見出し*/
@@ -267,6 +265,21 @@ welcome.css
   margin-top: 30px;
 }
 
+#login-page .login-body > div {
+  margin-top: 15px;
+  padding: 0 15px 0 0;
+}
+
+#login-page .login-body > div a {
+  display: block;
+}
+
+@media screen and (max-width: 640px) {
+  #login-page .login-body > div {
+    padding: 0;
+  }
+}
+
 /*===========================
 welcome.css
 =============================*/
@@ -286,12 +299,138 @@ welcome.css
 }
 
 /*===========================
-bookshelf.css
+home.css
 =============================*/
+
+.all-content #home-page.container {
+  position: relative;
+  padding: 0;
+  margin: 0 auto 150px;
+}
+
+/*画像*/
+
+#home-page .image_col,
+#home-page .image_col img {
+  width: 100%;
+}
+
+#home-page .image_col {
+  position: relative;
+  height: 280px;
+  background-color: #e0e0e0;
+}
+
+#home-page .image_col img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+
+#home-page .image_col > div,
+#home-page h1 {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+#home-page .image_col > div {
+  width: 150px;
+  top: 30px;
+}
+
+#home-page .image_col > div img {
+  width: 150px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  -o-object-position: 0px 0px;
+     object-position: 0px 0px;
+  border: 10px solid #fff;
+}
 
 /*見出し*/
 
-#bookshelf-page h1 {
+#home-page h1 {
+  top: 190px;
+  margin-top: 10px;
   font-size: 1.5rem;
+  text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff;
+}
+
+/*追加ボタン*/
+
+#home-page .icon_add,
+#home-page .icon_add a {
+  width: 60px;
+  height: 60px;
+}
+
+#home-page .icon_add {
+  position: fixed;
+  bottom: 80px;
+  right: 0;
+  margin: 0 10px 10px 0;
+  background: #540100;
+  border-radius: 50%;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#home-page .icon_add a {
+  display: block;
+}
+
+#home-page .icon_add::before,
+#home-page .icon_add::after {
+  position: absolute;
+  top: 27px;
+  left: 50%;
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 16px;
+  border-top: 4px solid #fff;
+  transform: translateX(-50%);
+}
+
+#home-page .icon_add::after {
+  top: 21px;
+  left: 4px;
+  transform: rotate(90deg);
+}
+
+/*===========================
+books-create.css
+=============================*/
+
+#books-create .row {
+  margin: 15px 0 0;
+}
+
+#books-create label {
+  text-align: center;
+  font-size: 1rem;
+}
+
+#books-create .form-select {
+  margin: 0 15px;
+}
+
+#books-create .form-check label {
+  color: #212529;
+  font-size: 0.9rem;
+}
+
+#books-create p {
+  font-size: 0.7rem;
+  padding-top: 10px;
+}
+
+#books-create .btn-primary {
+  margin: 30px 0 20px;
 }
 

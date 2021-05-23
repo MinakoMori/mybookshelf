@@ -5,7 +5,7 @@
 @section('content')
 
 <div id="login-page" class="container">
-        
+    
         <div class="login-body card-body">
         
         <h1>{{ __('messages.Login') }}</h1>
@@ -57,6 +57,15 @@
             </div>
             
         </form>
+        
+        <div class="col-md-6">
+        <a href="{{ route('register') }}">
+            <button type="submit" class="btn btn-secondary btn-block">
+            {{ __('messages.Register') }}
+            </button>
+        </a>
+        </div>
+        
         </div>
     
 </div>
