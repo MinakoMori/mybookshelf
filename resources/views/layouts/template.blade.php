@@ -13,6 +13,7 @@
     
     <!-- Scripts -->
     <script src="{{ secure_asset('js/app.js') }}" defer></script>
+    <script src="https://kit.fontawesome.com/392aeb13c8.js" crossorigin="anonymous"></script>
     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">

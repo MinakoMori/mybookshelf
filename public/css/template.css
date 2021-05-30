@@ -45,7 +45,8 @@ footer ul li:before,
 footer ul li a,
 footer ul li a:hover,
 footer ul li a:focus,
-#books-create label {
+#books-create label,
+#home-page .icon a {
   color: #963131;
 }
 
@@ -360,47 +361,127 @@ home.css
   text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 5px #fff;
 }
 
-/*追加ボタン*/
+/*ボタン共通CSS*/
 
-#home-page .icon_add,
-#home-page .icon_add a {
-  width: 60px;
-  height: 60px;
+#home-page .icon,
+#home-page .icon a,
+#home-page .search_col div a,
+#home-page .search_col div span {
+  display: block;
 }
 
-#home-page .icon_add {
+#home-page .search_col .row > div,
+#home-page .search_col .search_icon {
+  padding: 0;
+}
+
+#home-page .search_col .search_icon span,
+#home-page .search_col .star_icon span,
+#home-page .search_col .lift_icon span {
+  display: none;
+}
+
+/*ボタン*/
+
+#home-page .icon {
+  display: block;
   position: fixed;
   bottom: 80px;
   right: 0;
+  width: 70px;
+  height: 70px;
   margin: 0 10px 10px 0;
-  background: #540100;
+  font-size: 70px;
+  z-index: 9999;
+}
+
+#home-page .icon a {
+  line-height: 0;
+}
+
+#home-page .icon i {
+  position: absolute;
+  z-index: 100;
+}
+
+#home-page .icon span {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: block;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #fff;
   border-radius: 50%;
+  background-color: #fff;
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
 }
 
-#home-page .icon_add a {
-  display: block;
+#home-page .search_col {
+  padding: 15px 0;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08);
 }
 
-#home-page .icon_add::before,
-#home-page .icon_add::after {
-  position: absolute;
-  top: 27px;
-  left: 50%;
-  content: "";
-  display: inline-block;
-  width: 40px;
-  height: 16px;
-  border-top: 4px solid #fff;
-  transform: translateX(-50%);
+#home-page .search_col .row {
+  margin: 0 15px;
 }
 
-#home-page .icon_add::after {
-  top: 21px;
-  left: 4px;
-  transform: rotate(90deg);
+#home-page .search_col .star_icon,
+#home-page .search_col .lift_icon {
+  margin-left: 20px;
+}
+
+#home-page .search_col .search_icon,
+#home-page .search_col .star_icon,
+#home-page .search_col .lift_icon {
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
+
+#home-page .search_col .search_icon {
+  text-align: right;
+}
+
+#home-page .search_col .star_icon,
+#home-page .search_col .lift_icon {
+  text-align: center;
+}
+
+#home-page .search_col .search_icon i,
+#home-page .search_col .star_icon i,
+#home-page .search_col .lift_icon i {
+  padding: 10px;
+  font-size: 30px;
+}
+
+#home-page .search_col .search_icon i {
+  color: #adadad;
+  padding-right: 10px;
+}
+
+#home-page .search_col .star_icon i {
+  color: #dec400;
+}
+
+#home-page .search_col .lift_icon i {
+  color: #3490dc;
+}
+
+/*画像*/
+
+#home-page .garally_col {
+  margin: 0;
+}
+
+#home-page .garally_col .books_col {
+  padding: 0;
+}
+
+#home-page .garally_col .books_col img {
+  width: 100%;
 }
 
 /*===========================
