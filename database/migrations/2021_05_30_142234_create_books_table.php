@@ -21,8 +21,16 @@ class CreateBooksTable extends Migration
             $table->integer('money');
             $table->string('buy_date')->nullable();
             $table->string('status');
-            $table->string('tag')->nullable();
-            $table->string('genre')->nullable();
+            $table->string('genre_friendship')->nullable();
+            $table->string('genre_love')->nullable();
+            $table->string('genre_action')->nullable();
+            $table->string('genre_sf_horror')->nullable();
+            $table->string('genre_mystery')->nullable();
+            $table->string('genre_fantasy')->nullable();
+            $table->string('genre_history')->nullable();
+            $table->string('genre_nonfiction')->nullable();
+            $table->string('genre_essay')->nullable();
+            $table->string('genre_business')->nullable();
             $table->string('category')->nullable();
             $table->timestamps();
         });
