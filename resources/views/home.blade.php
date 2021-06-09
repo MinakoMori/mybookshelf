@@ -51,6 +51,19 @@
     </div>
     
     <div class="garally_col row">
+        @foreach($posts as $post)
+            <div class="col-4 books_col">
+                <a href="{{ url('/') }}">
+                    @if ($post->image_path)
+                    <img src="{{ asset('storage/image/' . $post->image_path) }}" alt="本">
+                    @endif
+                </a>
+            </div>
+        @endforeach
+    </div>
+    
+    <!--
+    <div class="garally_col row">
         <div class="col-4 books_col">
             <a href="{{ url('/') }}">
             <img src="{{ asset('storage/images/100001007470001.jpg') }}" alt="本">
@@ -97,6 +110,7 @@
             </a>
         </div>
     </div>
+    -->
     
 </div>
 

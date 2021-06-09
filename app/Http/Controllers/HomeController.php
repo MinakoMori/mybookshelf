@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\HTML;
+use App\Book;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $posts = Book::all()->sortByDesc('updated_at');
+        
+        return view('home', ['posts' => $posts]);
+    }
+    
+    public function posts(Request $request)
+    {
+        $posts = Book::all()->sortByDesc('updated_at');
+        
+        return view('home', ['posts' => $posts]);
     }
 }
