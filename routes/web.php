@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('books/edit', 'Admin\DetaController@edit');
     Route::get('books/search', 'Admin\SearchController@add');
     Route::get('books/search', 'Admin\SearchController@index');
+    Route::post('books/search', 'Admin\SearchController@index');
 });
 
 Auth::routes();
