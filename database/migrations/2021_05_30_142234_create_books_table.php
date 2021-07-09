@@ -20,7 +20,10 @@ class CreateBooksTable extends Migration
             $table->string('image_path')->nullable();
             $table->integer('money');
             $table->string('buy_date')->nullable();
+            $table->string('finish_date')->nullable();
             $table->string('status');
+            $table->string('evaluation')->nullable();
+            $table->string('memo')->nullable();
             $table->string('genre_friendship')->nullable();
             $table->string('genre_love')->nullable();
             $table->string('genre_action')->nullable();

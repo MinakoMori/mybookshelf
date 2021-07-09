@@ -11,7 +11,7 @@
     <div class="col-md-8 mx-auto">
     <div class="card card-body">
     
-    <form action="{{ action('Admin\CreateController@create') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ action('Admin\EditController@update') }}" method="post" enctype="multipart/form-data">
     
     @if (count($errors) > 0)
     <ul>
@@ -24,14 +24,14 @@
     <div class="form-group row">
         <label class="col-md-3">タイトル<span>*</span></label>
         <div class="col-md-9">
-            <input type="text" class="form-control" name="title" value="{{ old('title') }}" required >
+            <input type="text" class="form-control" name="title" value="{{ $book_form->title }}" required >
         </div>
     </div>
     
     <div class="form-group row">
         <label class="col-md-3">著者<span>*</span></label>
         <div class="col-md-9">
-            <input type="text" class="form-control" name="author" value="{{ old('author') }}" required >
+            <input type="text" class="form-control" name="author" value="{{ $book_form->author }}" required >
         </div>
     </div>
     
@@ -39,27 +39,34 @@
         <label class="col-md-3">画像</label>
         <div class="col-md-9">
             <input type="file" class="form-control-file" name="image">
+            <div class="form-text text-info">設定中: {{ $book_form->image_path }}</div>
+            <div class="form-check">
+                <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" name="remove" value="true">画像を削除
+                </label>
+            </div>
         </div>
     </div>
     
     <div class="form-group row">
         <label class="col-md-3">金額<span>*</span></label>
         <div class="col-md-9">
-            <input type="text" class="form-control" name="money" value="{{ old('money') }}" placeholder="0" required >
+            <input type="text" class="form-control" name="money" value="{{ $book_form->money }}" placeholder="0" required >
         </div>
     </div>
     
     <div class="form-group row">
         <label class="col-md-3">購入日</label>
         <div class="col-md-9">
-            <input type="date" class="form-control" name="buy_date" value="{{ old('buy_year') }}">
+            <input type="date" class="form-control" name="buy_date" value="{{ $book_form->buy_year }}">
         </div>
     </div>
     
     <div class="form-group row">
         <label class="col-md-3">状態</label>
         <select class="form-select form-control col-md-8" name="status" aria-label="状態">
-            <option selected value="1">読みたい</option>
+            <option selected value="{{ $book_form->status }}">{{ $book_form->status }}</option>
+            <option value="1">読みたい</option>
             <option value="2">購入済み</option>
             <option value="3">読書中</option>
             <option value="4">読了</option>
@@ -71,14 +78,14 @@
     <div class="form-group row">
         <label class="col-md-3">読了日</label>
         <div class="col-md-9">
-            <input type="date" class="form-control" name="buy_date" value="{{ old('buy_year') }}">
+            <input type="date" class="form-control" name="buy_date" value="{{ $book_form->buy_year }}">
         </div>
     </div>
     
     <div class="form-group row">
         <label class="col-md-3">評価</label>
-        <select class="form-select form-control col-md-8" name="status" aria-label="状態">
-            <option selected value="0">-</option>
+        <select class="form-select form-control col-md-8" name="evaluation" aria-label="状態">
+            <option selected value="{{ $book_form->evaluation }}">{{ $book_form->evaluation }}</option>
             <option value="1">★★★★★</option>
             <option value="2">★★★★</option>
             <option value="3">★★★</option>
@@ -90,11 +97,12 @@
     <div class="form-group row">
         <label class="col-md-3">感想</label>
         <div class="col-md-9">
-            <textarea class="form-control" name="body" rows="10">{{ old('body') }}</textarea>
+            <textarea class="form-control" name="body" rows="10">{{ $book_form->body }}</textarea>
         </div>
     </div>
     <!-- 読了選択後表示 -->
     
+    <!--
     <div class="form-group row">
         <label class="col-md-3">タグ</label>
         <div class="col-md-9">
@@ -102,6 +110,7 @@
             <p>※「#」で区切って登録</p>
         </div>
     </div>
+    
     
     <div class="form-group row">
         <label class="col-md-3">ジャンル</label>
@@ -200,6 +209,7 @@
         </div>
         </div>
     </div>
+    -->
     
      {{ csrf_field() }}
      

@@ -11,9 +11,4 @@ class DetaController extends Controller
     {
         return view('admin.books.deta');
     }
-    
-    public function edit(Request $request)
-    {
-        return view('admin.books.edit');
-    }
 }

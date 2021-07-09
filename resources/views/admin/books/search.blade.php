@@ -49,10 +49,10 @@
             <option value="4">図鑑</option>
         </select>
     </div>
-    <!--
+
     <div class="form-group row">
         <label class="col-md-3">評価</label>
-        <select class="form-select form-control col-md-8" name="status">
+        <select class="form-select form-control col-md-8" name="evaluation">
             <option selected value="0">-</option>
             <option value="1">★★★★★</option>
             <option value="2">★★★★</option>
@@ -64,19 +64,12 @@
     
     <div class="form-group row">
         <label class="col-md-3">感想</label>
-        <select class="form-select form-control col-md-8" name="status" aria-label="状態">
+        <select class="form-select form-control col-md-8" name="memo" aria-label="状態">
             <option selected value="1">なし</option>
             <option value="2">あり</option>
         </select>
     </div>
     
-    <div class="form-group row">
-        <label class="col-md-3">タグ</label>
-        <div class="col-md-8 form-normal">
-            <input type="text" class="form-control" name="tag">
-        </div>
-    </div>
-    -->
     <div class="form-group row">
         <label class="col-md-3">ジャンル</label>
         <div class="col-md-9">
@@ -153,17 +146,6 @@
     
     </div>
     </div>
-    
-    <!-- 終わったら消す
-    <tbody>
-        @foreach($posts as $books)
-            <tr>
-            <th>{{ $books->id }}</th>
-            <td>{{ \Str::limit($books->title, 100) }}</td>
-            </tr>
-        @endforeach
-    </tbody>
-    -->
 </div>
 
 @endsection
