@@ -19,6 +19,7 @@ class SearchController extends Controller
     
     public function index(Request $request)
     {
+        // 変数の格納処理
         $keyword_title = $request->input('title');
         $keyword_author = $request->input('author');
         $keyword_status = $request->input('status');
@@ -35,29 +36,31 @@ class SearchController extends Controller
         $keyword_genre_nonfiction = $request->input('genre_nonfiction');
         $keyword_genre_essay = $request->input('genre_essay');
         $keyword_genre_business = $request->input('genre_business');
-        //dd($keyword_genre_fantasy);
-        DB::enableQueryLog();
+        
+        // SQLの組み上げ処理開始
         $query = Book::query();
         
         $firstWhereFlg = 0;
         $secondWhereFlg = 0;
         $where = array();
         
+        // SQLの組み上げ処理（sqlqct 部分）
         $sql = 'SELECT * FROM `books`';
-        //dd($keyword_status);
+        
+        // SQLの組み上げ処理（whereの大外部分）
         if ($keyword_title != null) {
-            $sql .= ' WHERE title = ? ';
-            array_push($where,$keyword_title);
+            $sql .= ' WHERE title LIKE ? ';
+            array_push($where,'%'.$keyword_title.'%');
             $firstWhereFlg = 1;
         }
         if ($keyword_author != null) {
             if ($firstWhereFlg == 0) {
-                $sql .= ' WHERE author = ? ';
+                $sql .= ' WHERE author LIKE ? ';
                 $firstWhereFlg = 1;
             } else {
-                $sql .= 'AND author = ? ';
+                $sql .= 'AND author LIKE ? ';
             }
-            array_push($where,$keyword_author);
+            array_push($where,'%'.$keyword_author.'%');
         }
         if ($keyword_status != "0") {
             if ($firstWhereFlg == 0) {
@@ -96,6 +99,7 @@ class SearchController extends Controller
             array_push($where,$keyword_memo);
         }
         
+        // SQLの組み上げ処理（whereの入れ子部分）
         if ($keyword_genre_friendship == "on") {
             if ($firstWhereFlg == 0) {
                 $sql .= ' WHERE genre_friendship = ?';
@@ -104,9 +108,8 @@ class SearchController extends Controller
                 $sql .= 'AND (genre_friendship = ?';
                 $secondWhereFlg = 2;
             }
-            array_push($where,$keyword_genre_friendship);
+            array_push($where,"1");
         }
-        
         if ($keyword_genre_love == "on") {
             if ($firstWhereFlg == 0 && $secondWhereFlg == 0) {
                 $sql .= ' WHERE genre_love = ?';
@@ -117,23 +120,116 @@ class SearchController extends Controller
             } elseif ($secondWhereFlg != 0) {
                 $sql .= ' OR genre_love = ?';
             }
-            array_push($where,$keyword_genre_love);
+            array_push($where,"1");
+        }
+        if ($keyword_genre_action == "on") {
+            if ($firstWhereFlg == 0 && $secondWhereFlg == 0) {
+                $sql .= ' WHERE genre_action = ?';
+                $secondWhereFlg = 1;
+            } elseif ($firstWhereFlg == 1 && $secondWhereFlg == 0) {
+                $sql .= 'AND (genre_action = ?';
+                $secondWhereFlg = 2;
+            } elseif ($secondWhereFlg != 0) {
+                $sql .= ' OR genre_action = ?';
+            }
+            array_push($where,"1");
+        }
+        if ($keyword_genre_sf_horror == "on") {
+            if ($firstWhereFlg == 0 && $secondWhereFlg == 0) {
+                $sql .= ' WHERE genre_sf_horror = ?';
+                $secondWhereFlg = 1;
+            } elseif ($firstWhereFlg == 1 && $secondWhereFlg == 0) {
+                $sql .= 'AND (genre_sf_horror = ?';
+                $secondWhereFlg = 2;
+            } elseif ($secondWhereFlg != 0) {
+                $sql .= ' OR genre_sf_horror = ?';
+            }
+            array_push($where,"1");
+        }
+        if ($keyword_genre_mystery == "on") {
+            if ($firstWhereFlg == 0 && $secondWhereFlg == 0) {
+                $sql .= ' WHERE genre_mystery = ?';
+                $secondWhereFlg = 1;
+            } elseif ($firstWhereFlg == 1 && $secondWhereFlg == 0) {
+                $sql .= 'AND (genre_mystery = ?';
+                $secondWhereFlg = 2;
+            } elseif ($secondWhereFlg != 0) {
+                $sql .= ' OR genre_mystery= ?';
+            }
+            array_push($where,"1");
+        }
+        if ($keyword_genre_fantasy == "on") {
+            if ($firstWhereFlg == 0 && $secondWhereFlg == 0) {
+                $sql .= ' WHERE genre_fantasy = ?';
+                $secondWhereFlg = 1;
+            } elseif ($firstWhereFlg == 1 && $secondWhereFlg == 0) {
+                $sql .= 'AND (genre_fantasy = ?';
+                $secondWhereFlg = 2;
+            } elseif ($secondWhereFlg != 0) {
+                $sql .= ' OR genre_fantasy = ?';
+            }
+            array_push($where,"1");
+        }
+        if ($keyword_genre_history == "on") {
+            if ($firstWhereFlg == 0 && $secondWhereFlg == 0) {
+                $sql .= ' WHERE genre_history = ?';
+                $secondWhereFlg = 1;
+            } elseif ($firstWhereFlg == 1 && $secondWhereFlg == 0) {
+                $sql .= 'AND (genre_history = ?';
+                $secondWhereFlg = 2;
+            } elseif ($secondWhereFlg != 0) {
+                $sql .= ' OR genre_history = ?';
+            }
+            array_push($where,"1");
+        }
+        if ($keyword_genre_nonfiction == "on") {
+            if ($firstWhereFlg == 0 && $secondWhereFlg == 0) {
+                $sql .= ' WHERE genre_nonfiction = ?';
+                $secondWhereFlg = 1;
+            } elseif ($firstWhereFlg == 1 && $secondWhereFlg == 0) {
+                $sql .= 'AND (genre_nonfiction = ?';
+                $secondWhereFlg = 2;
+            } elseif ($secondWhereFlg != 0) {
+                $sql .= ' OR genre_nonfiction = ?';
+            }
+            array_push($where,"1");
+        }
+        if ($keyword_genre_essay == "on") {
+            if ($firstWhereFlg == 0 && $secondWhereFlg == 0) {
+                $sql .= ' WHERE genre_essay = ?';
+                $secondWhereFlg = 1;
+            } elseif ($firstWhereFlg == 1 && $secondWhereFlg == 0) {
+                $sql .= 'AND (genre_essay = ?';
+                $secondWhereFlg = 2;
+            } elseif ($secondWhereFlg != 0) {
+                $sql .= ' OR genre_essay = ?';
+            }
+            array_push($where,"1");
+        }
+        if ($keyword_genre_business == "on") {
+            if ($firstWhereFlg == 0 && $secondWhereFlg == 0) {
+                $sql .= ' WHERE genre_business = ?';
+                $secondWhereFlg = 1;
+            } elseif ($firstWhereFlg == 1 && $secondWhereFlg == 0) {
+                $sql .= 'AND (genre_business = ?';
+                $secondWhereFlg = 2;
+            } elseif ($secondWhereFlg != 0) {
+                $sql .= ' OR genre_business = ?';
+            }
+            array_push($where,"1");
         }
         
         if ($secondWhereFlg == 2) {
                 $sql .= ')';
         }
         
-        //$sql .= 'WHERE status = ? AND title = ? AND (genre_friendship = ? OR genre_mystery = ?)';
-        
+        // SQLの実行
         $posts = DB::select($sql,$where);
-        //dd($keyword_status);
         
-        $posts = $query->orderBy('created_at', 'desc')->get();
+        //$posts = $query->orderBy('created_at', 'desc')->get();
         //dd(DB::getQueryLog());
-        //dd(DB::getQueryLog(),$keyword_title,$keyword_author,$keyword_status,$keyword_category,$keyword_evaluation,$keyword_memo,$keyword_genre_friendship,$keyword_genre_love,$posts);
-        //dd($keyword_genre_friendship,$posts);
         
+        // リターン先の分岐処理
         if($request->method() == 'GET'){
             return view('admin.books.search', [ 'posts' => $posts ]);
         } else {

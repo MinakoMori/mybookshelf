@@ -58,7 +58,7 @@
     <div class="form-group row">
         <label class="col-md-3">購入日</label>
         <div class="col-md-9">
-            <input type="date" class="form-control" name="buy_date" value="{{ $book_form->buy_year }}">
+            <input type="date" class="form-control" name="buy_date" value="{{ $book_form->buy_date }}">
         </div>
     </div>
     
@@ -78,7 +78,7 @@
     <div class="form-group row">
         <label class="col-md-3">読了日</label>
         <div class="col-md-9">
-            <input type="date" class="form-control" name="buy_date" value="{{ $book_form->buy_year }}">
+            <input type="date" class="form-control" name="finish_date" value="{{ $book_form->finish_date }}">
         </div>
     </div>
     
@@ -86,18 +86,18 @@
         <label class="col-md-3">評価</label>
         <select class="form-select form-control col-md-8" name="evaluation" aria-label="状態">
             <option selected value="{{ $book_form->evaluation }}">{{ $book_form->evaluation }}</option>
-            <option value="1">★★★★★</option>
-            <option value="2">★★★★</option>
+            <option value="5">★★★★★</option>
+            <option value="4">★★★★</option>
             <option value="3">★★★</option>
-            <option value="4">★★</option>
-            <option value="5">★</option>
+            <option value="2">★★</option>
+            <option value="1">★</option>
         </select>
     </div>
 
     <div class="form-group row">
         <label class="col-md-3">感想</label>
         <div class="col-md-9">
-            <textarea class="form-control" name="body" rows="10">{{ $book_form->body }}</textarea>
+            <textarea class="form-control" name="memo" rows="10">{{ $book_form->memo }}</textarea>
         </div>
     </div>
     <!-- 読了選択後表示 -->
@@ -212,7 +212,8 @@
     -->
     
      {{ csrf_field() }}
-     
+    
+    <input type="hidden" name="id" value="{{ $book_form->id }}">
     <input type="submit" class="btn btn-primary btn-block" value="更新">
     
     </form>

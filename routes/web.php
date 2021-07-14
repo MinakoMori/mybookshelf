@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('books/create', 'Admin\CreateController@add');
     Route::post('books/create', 'Admin\CreateController@create');
-    Route::get('books/deta', 'Admin\DetaController@add');
+    Route::get('books/deta', 'Admin\DetaController@index');
     Route::get('books/edit', 'Admin\EditController@edit');
     Route::post('books/edit', 'Admin\EditController@update');
     Route::get('books/search', 'Admin\SearchController@add');

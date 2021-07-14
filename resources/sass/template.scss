@@ -480,6 +480,8 @@ data.css
 #books-deta img {
     display: block;
     margin: 50px auto;
+    width: 100%;
+    max-width: 600px;
 }
 
 #books-deta .deta_col {
@@ -492,7 +494,7 @@ data.css
 
 #books-deta dl.memo dt {
     padding-bottom: 10px;
-    border-bottom: 1px solid #963131;
+    /*border-bottom: 1px solid #963131;*/
 }
 
 #books-deta dl.memo dd {
@@ -504,10 +506,12 @@ data.css
     border: 2px solid #3490dc;
 }
 
+/*
 #books-deta .btn-primary {
     color: #3490dc;
     background-color: #ffffff;
 }
+*/
 
 /*星評価*/
 .star5_rating {

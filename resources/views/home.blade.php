@@ -53,7 +53,7 @@
     <div class="garally_col row">
         @foreach($posts as $post)
             <div class="col-4 books_col">
-                <a href="{{ url('admin/books/edit?id=' . $post->id) }}">
+                <a href="{{ url('admin/books/deta?id=' . $post->id) }}">
                     @if ($post->image_path)
                     <img src="{{ asset('storage/image/' . $post->image_path) }}" alt="本">
                     @endif
