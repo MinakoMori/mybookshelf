@@ -70,7 +70,7 @@
                     @if (isset($post->image_path))
                     <img src="{{ $post->image_path }}" alt="{{ $post->title }}">
                     @else
-                    <img src="{{ asset('storage/images/no_image.png') }}" alt="{{ $post->title }}">
+                    <img src="https://mymybookshelf.s3.ap-northeast-1.amazonaws.com/HWWjEYVYUEiFoH2VCEO65auhLfTvPeoGAUNbq4HH.png" alt="{{ $post->title }}">
                     @endif
                 </a>
             </div>
