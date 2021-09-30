@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class Book extends Model
 {
@@ -13,4 +14,10 @@ class Book extends Model
         'author' => 'required',
         'money' => 'required',
     );
+    
+    public function tags()
+    {
+        return $this->hasMany('App\Tag');
+
+    }
 }

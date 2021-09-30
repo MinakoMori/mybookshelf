@@ -26,6 +26,7 @@ class SearchController extends Controller
         $keyword_category = $request->input('category');
         $keyword_evaluation = $request->input('evaluation');
         $keyword_memo = $request->input('memo');
+        
         $keyword_genre_friendship = $request->input('genre_friendship');
         $keyword_genre_love = $request->input('genre_love');
         $keyword_genre_action = $request->input('genre_action');
@@ -233,7 +234,31 @@ class SearchController extends Controller
         if($request->method() == 'GET'){
             return view('admin.books.search', [ 'posts' => $posts ]);
         } else {
-            return view('home', [ 'posts' => $posts ]);
+            return view('home', [ 
+                'posts' => $posts,
+                'sortTypeNew' => "asc",
+                'sortTypeRank' => "asc"
+            ]);
         }
+    }
+    
+    public function searchTag(Request $request)
+    {
+        $arrTag = array();
+        $tag = $request['tag'];
+        $tag = str_replace('#', '', $tag);
+        $tags = Tag::where('tag',$tag)->get(['book_id'])->toArray();
+        
+        foreach($tags as $tag){
+            array_push($arrTag,$tag['book_id']);
+        }
+        
+        $posts = Book::whereIn('id',$arrTag)->get();
+        
+        return view('home', [ 
+            'posts' => $posts,
+            'sortTypeNew' => "asc",
+            'sortTypeRank' => "asc"
+        ]);
     }
 }

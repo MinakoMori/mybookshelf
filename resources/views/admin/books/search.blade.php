@@ -35,7 +35,6 @@
             <option value="2">購入済み</option>
             <option value="3">読書中</option>
             <option value="4">読了</option>
-            <option value="5">ゴミ箱</option>
         </select>
     </div>
     
@@ -47,6 +46,7 @@
             <option value="2">漫画</option>
             <option value="3">雑誌</option>
             <option value="4">図鑑</option>
+            <option value="5">その他</option>
         </select>
     </div>
 
@@ -54,11 +54,11 @@
         <label class="col-md-3">評価</label>
         <select class="form-select form-control col-md-8" name="evaluation">
             <option selected value="0">-</option>
-            <option value="1">★★★★★</option>
-            <option value="2">★★★★</option>
+            <option value="5">★★★★★</option>
+            <option value="4">★★★★</option>
             <option value="3">★★★</option>
-            <option value="4">★★</option>
-            <option value="5">★</option>
+            <option value="2">★★</option>
+            <option value="1">★</option>
         </select>
     </div>
     
@@ -140,6 +140,23 @@
     <i class="fas fa-search"></i>
     {{ csrf_field() }}
     <input type="submit" class="btn btn-primary btn-block" value="検索">
+    </div>
+    
+    </form>
+    
+    <form action="{{ action('Admin\SearchController@searchTag') }}" method="post">
+    
+    <div class="form-group row">
+        <label class="col-md-3">タグ検索</label>
+        <div class="col-md-8 form-normal">
+            <input type="text" class="form-control" name="tag">
+        </div>
+    </div>
+    
+    <div class="btn_col">
+    <i class="fas fa-search"></i>
+    {{ csrf_field() }}
+    <input type="submit" class="btn btn-primary btn-block" value="タグ検索">
     </div>
     
     </form>

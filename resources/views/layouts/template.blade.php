@@ -14,6 +14,7 @@
     <!-- Scripts -->
     <script src="{{ secure_asset('js/app.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/392aeb13c8.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -78,19 +79,19 @@
         </div> -->
         <ul class="row">
             <li class="col">
-                <a href="{{ url('/') }}">
+                <a href="{{ url('admin/home') }}">
                 <img src="{{ asset('storage/images/f_icon01.png') }}" alt="本棚">
                 <span>本棚</span>
                 </a>
             </li>
             <li class="col">
-                <a href="{{ url('/') }}">
+                <a href="{{ url('admin/books/graph1') }}">
                 <img src="{{ asset('storage/images/f_icon02.png') }}" alt="Myデータ">
                 <span>Myデータ</span>
                 </a>
             </li>
             <li class="col">
-                <a href="{{ url('/') }}">
+                <a href="{{ url('admin/books/custom') }}">
                 <img src="{{ asset('storage/images/f_icon03.png') }}" alt="カスタム">
                 <span>カスタム</span>
                 </a>

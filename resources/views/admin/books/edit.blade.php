@@ -65,16 +65,22 @@
     <div class="form-group row">
         <label class="col-md-3">状態</label>
         <select class="form-select form-control col-md-8" name="status" aria-label="状態">
-            <option selected value="{{ $book_form->status }}">{{ $book_form->status }}</option>
+            <option selected value="{{ $book_form->status }}">{{ $book_status }}</option>
             <option value="1">読みたい</option>
             <option value="2">購入済み</option>
             <option value="3">読書中</option>
             <option value="4">読了</option>
-            <option value="5">ゴミ箱</option>
         </select>
     </div>
     
-    <!-- 読了選択後表示 -->
+    <div class="form-group row">
+        <label class="col-md-3">タグ</label>
+        <div class="col-md-9">
+            <input type="text" class="form-control" name="tag" value="@if($book_form->tags != NULL)@foreach($book_form->tags as $tag){{ "#".$tag->tag." " }}@endforeach @endif">
+            <p>※「#」で区切って登録</p>
+        </div>
+    </div>
+    
     <div class="form-group row">
         <label class="col-md-3">読了日</label>
         <div class="col-md-9">
@@ -85,7 +91,7 @@
     <div class="form-group row">
         <label class="col-md-3">評価</label>
         <select class="form-select form-control col-md-8" name="evaluation" aria-label="状態">
-            <option selected value="{{ $book_form->evaluation }}">{{ $book_form->evaluation }}</option>
+            <option selected value="{{ $book_form->evaluation }}">{{ $book_evaluation }}</option>
             <option value="5">★★★★★</option>
             <option value="4">★★★★</option>
             <option value="3">★★★</option>
@@ -100,77 +106,66 @@
             <textarea class="form-control" name="memo" rows="10">{{ $book_form->memo }}</textarea>
         </div>
     </div>
-    <!-- 読了選択後表示 -->
-    
-    <!--
-    <div class="form-group row">
-        <label class="col-md-3">タグ</label>
-        <div class="col-md-9">
-            <input type="text" class="form-control" name="tag" value="{{ old('tag') }}">
-            <p>※「#」で区切って登録</p>
-        </div>
-    </div>
-    
     
     <div class="form-group row">
         <label class="col-md-3">ジャンル</label>
         <div class="col-md-9">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="genre_friendship" value="1" id="defaultCheck1">
+            <input class="form-check-input" type="checkbox" name="genre_friendship" value="1" id="defaultCheck1" @if($book_form->genre_friendship == "1")checked @endif>
             <label class="form-check-label" for="flexRadioDefault1">
                 友情
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="genre_love" value="1" id="defaultCheck2">
+            <input class="form-check-input" type="checkbox" name="genre_love" value="1" id="defaultCheck2" @if($book_form->genre_love == "1")checked @endif>
             <label class="form-check-label" for="flexRadioDefault2">
                 恋愛
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="genre_action" value="1" id="defaultCheck3">
+            <input class="form-check-input" type="checkbox" name="genre_action" value="1" id="defaultCheck3" @if($book_form->genre_action == "1")checked @endif>
             <label class="form-check-label" for="flexRadioDefault3">
                 アクション
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="genre_sf_horror" value="1" id="defaultCheck4">
+            <input class="form-check-input" type="checkbox" name="genre_sf_horror" value="1" id="defaultCheck4" @if($book_form->genre_sf_horror == "1")checked @endif>
             <label class="form-check-label" for="flexRadioDefault4">
                 SF・ホラー
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="genre_mystery" value="1" id="defaultCheck5">
+            <input class="form-check-input" type="checkbox" name="genre_mystery" value="1" id="defaultCheck5" @if($book_form->genre_mystery == "1")checked @endif>
             <label class="form-check-label" for="flexRadioDefault5">
                 ミステリー
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="genre_fantasy" value="1" id="defaultCheck6">
+            <input class="form-check-input" type="checkbox" name="genre_fantasy" value="1" id="defaultCheck6" @if($book_form->genre_fantasy == "1")checked @endif>
             <label class="form-check-label" for="flexRadioDefault6">
                 ファンタジー
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="genre_history" value="1" id="defaultCheck7">
+            <input class="form-check-input" type="checkbox" name="genre_history" value="1" id="defaultCheck7" @if($book_form->genre_history == "1")checked @endif>
             <label class="form-check-label" for="flexRadioDefault7">
                 歴史
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="genre_nonfiction" value="1" id="defaultCheck8">
+            <input class="form-check-input" type="checkbox" name="genre_nonfiction" value="1" id="defaultCheck8" @if($book_form->genre_nonfiction == "1")checked @endif>
             <label class="form-check-label" for="flexRadioDefault8">
                 ノンフィクション
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="genre_essay" value="1" id="defaultCheck9">
+            <input class="form-check-input" type="checkbox" name="genre_essay" value="1" id="defaultCheck9" @if($book_form->genre_essay == "1")checked @endif>
             <label class="form-check-label" for="flexRadioDefault9">
                 エッセイ
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="genre_business" value="1" id="defaultCheck10">
+            <input class="form-check-input" type="checkbox" name="genre_business" value="1" id="defaultCheck10" @if($book_form->genre_business == "1")checked @endif>
             <label class="form-check-label" for="flexRadioDefault9">
                 ビジネス
             </label>
@@ -183,38 +178,45 @@
         <div class="col-md-9">
         <div class="row">
         <div class="form-check col-6 col-md-4">
-            <input class="form-check-input" type="radio" name="category" value="1" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="category" value="1" id="flexRadioDefault1" @if($book_form->category == "1")checked @endif>
             <label class="form-check-label" for="flexRadioDefault1">
                 小説
             </label>
         </div>
         <div class="form-check col-6 col-md-4">
-            <input class="form-check-input" type="radio" name="category" value="2" id="flexRadioDefault2">
+            <input class="form-check-input" type="radio" name="category" value="2" id="flexRadioDefault2" @if($book_form->category == "2")checked @endif>
             <label class="form-check-label" for="flexRadioDefault2">
                 漫画
             </label>
         </div>
         <div class="form-check col-6 col-md-4">
-            <input class="form-check-input" type="radio" name="category" value="3" id="flexRadioDefault3">
+            <input class="form-check-input" type="radio" name="category" value="3" id="flexRadioDefault3" @if($book_form->category == "3")checked @endif>
             <label class="form-check-label" for="flexRadioDefault3">
                 雑誌
             </label>
         </div>
         <div class="form-check col-6 col-md-4">
-            <input class="form-check-input" type="radio" name="category" value="4" id="flexRadioDefault4">
+            <input class="form-check-input" type="radio" name="category" value="4" id="flexRadioDefault4" @if($book_form->category == "4")checked @endif>
             <label class="form-check-label" for="flexRadioDefault4">
                 図鑑
+            </label>
+        </div>
+        <div class="form-check col-6 col-md-4">
+            <input class="form-check-input" type="radio" name="category" value="5" id="flexRadioDefault5" @if($book_form->category == "5")checked @endif>
+            <label class="form-check-label" for="flexRadioDefault5">
+                その他
             </label>
         </div>
         </div>
         </div>
     </div>
-    -->
     
      {{ csrf_field() }}
     
+    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
     <input type="hidden" name="id" value="{{ $book_form->id }}">
-    <input type="submit" class="btn btn-primary btn-block" value="更新">
+    <input type="submit" class="btn btn-primary btn-block" name="update" value="更新">
+    <input type="submit" class="btn btn-delete btn-block" name="delete" value="削除" onclick='return confirm("本当に削除しますか？");'>
     
     </form>
     

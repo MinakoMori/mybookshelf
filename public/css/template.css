@@ -51,7 +51,8 @@ footer ul li a:focus,
 #books-edit label,
 #books-search label,
 #home-page .icon a,
-#books-deta dl dt {
+#books-deta dl dt,
+#books-custom .col_title {
   color: #963131;
 }
 
@@ -65,6 +66,7 @@ footer ul li a:focus {
   footer ul li a,
   footer ul li a:hover,
   footer ul li a:focus {
+    display: block;
     color: #fff;
   }
 }
@@ -232,6 +234,7 @@ footer ul li a img {
 
   footer ul li a img {
     display: inherit;
+    margin: 0 auto;
     width: 30px;
   }
 
@@ -355,6 +358,7 @@ home.css
   -o-object-position: 0px 0px;
      object-position: 0px 0px;
   border: 10px solid #fff;
+  background-color: #fff;
 }
 
 /*見出し*/
@@ -447,7 +451,7 @@ home.css
 }
 
 #home-page .search_col .search_icon {
-  text-align: right;
+  text-align: center;
 }
 
 #home-page .search_col .star_icon,
@@ -486,7 +490,10 @@ home.css
 }
 
 #home-page .garally_col .books_col img {
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 100%;
+  height: 100%;
 }
 
 /*===========================
@@ -532,6 +539,13 @@ books-edit.css
   margin: 30px 0 20px;
 }
 
+#books-edit .btn-delete {
+  margin-top: 20px;
+  color: #fff;
+  border: 2px solid #ababab;
+  background-color: #ababab;
+}
+
 /*===========================
 data.css
 =============================*/
@@ -552,7 +566,7 @@ data.css
   display: block;
   margin: 50px auto;
   width: 100%;
-  max-width: 600px;
+  max-width: 300px;
 }
 
 #books-deta .deta_col {
@@ -576,13 +590,6 @@ data.css
   font-size: 1.1rem;
   border: 2px solid #3490dc;
 }
-
-/*
-#books-deta .btn-primary {
-    color: #3490dc;
-    background-color: #ffffff;
-}
-*/
 
 /*星評価*/
 
@@ -734,5 +741,113 @@ search.css
   #books-search i {
     left: 35%;
   }
+}
+
+/*===========================
+graph.css
+=============================*/
+
+#books-graph h2,
+#books-graph h3 {
+  font-size: 1.3rem;
+}
+
+#books-graph .button .col {
+  padding: 0 5px;
+}
+
+#books-graph .button a {
+  display: block;
+  padding: 5px 0;
+  color: #fff;
+  text-align: center;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border: 2px solid;
+  border-radius: 5px;
+  border-color: #963131;
+  background-color: #963131;
+}
+
+#books-graph .button .col:first-child a {
+  border-color: #b75555;
+  background-color: #b75555;
+}
+
+#books-graph .button .col:last-child a {
+  border-color: #732020;
+  background-color: #732020;
+}
+
+#books-graph .graph_col,
+#books-graph .data_col {
+  margin-top: 30px;
+}
+
+#books-graph .data_col .col:first-child {
+  padding-right: 5px;
+}
+
+#books-graph .data_col .col:last-child {
+  padding-left: 5px;
+}
+
+#books-graph .card {
+  position: relative;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #963131;
+}
+
+#books-graph .data_col > .card:last-child {
+  margin-top: 30px;
+}
+
+#books-graph .data_col .card span {
+  font-size: 2rem;
+  display: contents;
+}
+
+#books-graph .txt-no-data {
+  position: absolute;
+  color: #b1b1b1;
+  top: 50%;
+  left: 40%;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 1200px) {
+  #books-graph .txt-no-data {
+    left: 38%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #books-graph .txt-no-data {
+    top: 53%;
+    left: 34%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #books-graph .button {
+    margin: auto;
+  }
+
+  #books-graph .txt-no-data {
+    top: 70%;
+    font-size: 1.5rem;
+  }
+}
+
+/*===========================
+Custom.css
+=============================*/
+
+#books-custom .col_title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-align: center;
 }
 

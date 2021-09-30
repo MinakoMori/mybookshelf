@@ -63,7 +63,6 @@
             <option value="2">購入済み</option>
             <option value="3">読書中</option>
             <option value="4">読了</option>
-            <option value="5">ゴミ箱</option>
         </select>
     </div>
     
@@ -169,12 +168,20 @@
                 図鑑
             </label>
         </div>
+        <div class="form-check col-6 col-md-4">
+            <input class="form-check-input" type="radio" name="category" value="5" id="flexRadioDefault5">
+            <label class="form-check-label" for="flexRadioDefault5">
+                その他
+            </label>
+        </div>
         </div>
         </div>
     </div>
     
      {{ csrf_field() }}
-     
+    
+    <input type="hidden" name="evaluation" value="0">
+    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
     <input type="submit" class="btn btn-primary btn-block" value="登録">
     
     </form>

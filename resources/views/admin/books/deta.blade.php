@@ -11,17 +11,25 @@
     <h2>{{ $book_form->title }}</h2>
     <h3>{{ $book_form->author }}</h3>
     
-    <img src="{{ asset('storage/image/' . $book_form->image_path) }}" alt="本">
+    @if (isset($book_form->image_path))
+        <img src="{{ asset('storage/image/' . $book_form->image_path) }}" alt="本">
+    @else
+        <img src="{{ asset('storage/images/no_image.png') }}" alt="本">
+    @endif
     
     <div class="deta_col">
     <dl>
         <dt>タグ</dt>
-        <dd>{{ "#" . $book_tag . " " }}</dd>
+        <dd>
+            @foreach($book_tags as $book_tag)
+            <a href="{{ url('admin/books/search/tag?tag=' .$book_tag->tag) }}">{{ "#" . $book_tag->tag . " " }}</a>
+            @endforeach
+        </dd>
     </dl>
     
     <dl>
         <dt>ジャンル</dt>
-        <dd>{{ $book_form->genre_friendship }} {{ $book_form->genre_love }} {{ $book_form->genre_action }} {{ $book_form->genre_sf_horror }} {{ $book_form->genre_mystery }} {{ $book_form->genre_fantasy }} {{ $book_form->genre_history }} {{ $book_form->genre_nonfiction }} {{ $book_form->genre_essay }} {{ $book_form->genre_business }}</dd>
+        <dd>{{ $book_genre_friendship }} {{ $book_genre_love }} {{ $book_genre_action }} {{ $book_genre_sf_horror }} {{ $book_genre_mystery }} {{ $book_genre_fantasy }} {{ $book_genre_history }} {{ $book_genre_nonfiction }} {{ $book_genre_essay }} {{ $book_genre_business }}</dd>
     </dl>
     
     <dl>
