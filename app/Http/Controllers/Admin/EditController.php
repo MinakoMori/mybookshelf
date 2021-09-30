@@ -68,12 +68,13 @@ class EditController extends Controller
         
         if ($request->remove == 'true') {
             $book_form['image_path'] = null;
-        } elseif ($request->file('image')) {
-            $path = $request->file('image')->store('public/image');
-            $book_form['image_path'] = basename($path);
-        } elseif ($request->file('image')) {
-            $book_form['image_path'] = $book->image_path;
+        } elseif (isset($book_form['image'])) {
+            $path = Storage::disk('s3')->putFile('/',$book_form['image'],'public');
+            $book_form['image_path'] = Storage::disk('s3')->url($path);
         }
+        //elseif ($request->file('image')) {
+        //    $book_form['image_path'] = $book->image_path;
+        //}
         
         $str_tag = str_replace(array(" ", "　"), "", $book_form['tag']);
         

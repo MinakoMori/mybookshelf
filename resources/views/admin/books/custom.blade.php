@@ -59,7 +59,7 @@
         <div class="col-md-9">
             <input type="file" class="form-control-file" name="icon_image">
             <div class="form-text text-info">
-            設定中: {{ $user->icon_image_path }}
+            設定中: {{ Auth::user()->icon_image_path }}
             </div>
             <div class="form-check">
                 <label class="form-check-label">
@@ -74,7 +74,7 @@
         <div class="col-md-9">
             <input type="file" class="form-control-file" name="header_image">
             <div class="form-text text-info">
-            設定中: {{ $user->header_image_path }}
+            設定中: {{ Auth::user()->header_image_path }}
             </div>
             <div class="form-check">
                 <label class="form-check-label">

@@ -12,7 +12,7 @@
     <h3>{{ $book_form->author }}</h3>
     
     @if (isset($book_form->image_path))
-        <img src="{{ asset('storage/image/' . $book_form->image_path) }}" alt="本">
+        <img src="{{ $book_form->image_path }}" alt="本">
     @else
         <img src="{{ asset('storage/images/no_image.png') }}" alt="本">
     @endif

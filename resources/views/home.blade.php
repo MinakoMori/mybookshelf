@@ -8,15 +8,15 @@
     
     <div class="image_col">
         @if (isset(Auth::user()->header_image_path))
-        <img src="{{ asset('storage/image/' . Auth::user()->header_image_path) }}" alt="ヘッダー画像">
+        <img src="{{ Auth::user()->header_image_path }}" alt="ヘッダー画像">
         @else
-        <img src="{{ asset('storage/images/background.png') }}" alt="ヘッダー画像">
+        <img src="https://mymybookshelf.s3.ap-northeast-1.amazonaws.com/KUa74VE9JvQUi28zqz3zgR6QsmCp51hPA44U8ava.png" alt="ヘッダー画像">
         @endif
         <div>
             @if (isset(Auth::user()->icon_image_path))
-            <img src="{{ asset('storage/image/' . Auth::user()->icon_image_path) }}" alt="アイコン画像">
+            <img src="{{ Auth::user()->icon_image_path }}" alt="アイコン画像">
             @else
-            <img src="{{ asset('storage/images/unnamed.png') }}" alt="アイコン画像">
+            <img src="https://mymybookshelf.s3.ap-northeast-1.amazonaws.com/wyQfCSuW20pu2mkSTmQnu1RUz61p51tfUUda14GJ.png" alt="アイコン画像">
             @endif
         </div>
         <h1>{{ Auth::user()->name }}の本棚</h1>
@@ -68,9 +68,9 @@
                 <!-- <p>{{ $post->title }}</p> -->
                 <a href="{{ url('admin/books/deta?id=' . $post->id) }}">
                     @if (isset($post->image_path))
-                    <img src="{{ asset('storage/image/' . $post->image_path) }}" alt="本">
+                    <img src="{{ $post->image_path }}" alt="{{ $post->title }}">
                     @else
-                    <img src="{{ asset('storage/images/no_image.png') }}" alt="本">
+                    <img src="{{ asset('storage/images/no_image.png') }}" alt="{{ $post->title }}">
                     @endif
                 </a>
             </div>

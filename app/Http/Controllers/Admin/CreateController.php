@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Book;
 use App\Tag;
+use Storage;
 
 class CreateController extends Controller
 {
@@ -23,8 +24,8 @@ class CreateController extends Controller
         $str_tag = str_replace(array(" ", "　"), "", $form['tag']);
         
         if (isset($form['image'])) {
-            $path = $request->file('image')->store('public/image');
-            $books->image_path = basename($path);
+            $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+            $books->image_path = Storage::disk('s3')->url($path);
         } else {
             $books->image_path = null;
         }

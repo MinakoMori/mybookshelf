@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Image;
+use Storage;
 
 class CustomController extends Controller
 {
@@ -28,8 +29,8 @@ class CustomController extends Controller
         $form = $request->all();
         
         if (isset($form['header_image'])) {
-            $path = $request->file('header_image')->store('public/image');
-            $user['header_image_path'] = basename($path);
+            $path = Storage::disk('s3')->putFile('/',$form['header_image'],'public');
+            $user['header_image_path'] = Storage::disk('s3')->url($path);
         } elseif ($request->head_remove == 'true') {
             $user['header_image_path'] = null;
         } elseif ($request->head_remove == 'false') {
@@ -39,8 +40,8 @@ class CustomController extends Controller
         }
         
         if (isset($form['icon_image'])) {
-            $path = $request->file('icon_image')->store('public/image');
-            $user['icon_image_path'] = basename($path);
+            $path = Storage::disk('s3')->putFile('/',$form['icon_image'],'public');
+            $user['icon_image_path'] = Storage::disk('s3')->url($path);
         } elseif ($request->icon_remove == 'true') {
             $user['icon_image_path'] = null;
         } elseif ($request->icon_remove == 'false') {
@@ -59,6 +60,7 @@ class CustomController extends Controller
             abort(404);    
         }
         
-        return view('admin.books.custom', ['user' => $user]);
+        //return view('admin.books.custom', ['user' => $user]);
+        return redirect('admin/home');
     }
 }

@@ -31,7 +31,7 @@
     <nav class="navbar">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="{{ asset('storage/images/app_logo.png') }}" alt="{{ config('app.name', 'MyBookshelf') }}">
+            <img src="https://mymybookshelf.s3.ap-northeast-1.amazonaws.com/4wmlF0IpAYUXPpXLUotG1jSdMVOGzttITh4F9gM3.png" alt="{{ config('app.name', 'MyBookshelf') }}">
         </a>
         <!-- ハンバーガーアイコン -->
         <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,19 +80,19 @@
         <ul class="row">
             <li class="col">
                 <a href="{{ url('admin/home') }}">
-                <img src="{{ asset('storage/images/f_icon01.png') }}" alt="本棚">
+                <img src="https://mymybookshelf.s3.ap-northeast-1.amazonaws.com/WNM8hOzyFcjpZAMDjQvLYXJFxTSZafiPDYmq1mv7.png" alt="本棚">
                 <span>本棚</span>
                 </a>
             </li>
             <li class="col">
                 <a href="{{ url('admin/books/graph1') }}">
-                <img src="{{ asset('storage/images/f_icon02.png') }}" alt="Myデータ">
+                <img src="https://mymybookshelf.s3.ap-northeast-1.amazonaws.com/e28fGzDrsUgNWYcSGKFjJuqvZPgLMKvIoViTv2Qo.png" alt="Myデータ">
                 <span>Myデータ</span>
                 </a>
             </li>
             <li class="col">
                 <a href="{{ url('admin/books/custom') }}">
-                <img src="{{ asset('storage/images/f_icon03.png') }}" alt="カスタム">
+                <img src="https://mymybookshelf.s3.ap-northeast-1.amazonaws.com/8t7mtEWFLU5gIkUfjhS1eLybXlG3BCjPXBzeu7XV.png" alt="カスタム">
                 <span>カスタム</span>
                 </a>
             </li>
