@@ -21,11 +21,7 @@ class GraphController extends Controller
         
         for ($i = $before_1year; $i <= $end_date; $i = date("Y-m-d", strtotime($i . "+1 month"))) {
             $buy_count = Book::where('buy_date','like',substr($i,0,8)."%")->where('user_id',Auth::id())->count();
-            //if (substr($i,5,2) == "01") {
-            //    $arrCount[substr($i,0,4).substr($i,5,2)] = $buy_count;
-            //} else {
-               $arrCount[substr($i,5,2)] = $buy_count;
-            //}
+            $arrCount[substr($i,5,2)] = $buy_count;
         }
         
         //dd($arrCount);
