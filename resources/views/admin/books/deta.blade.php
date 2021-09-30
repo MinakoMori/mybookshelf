@@ -14,7 +14,7 @@
     @if (isset($book_form->image_path))
         <img src="{{ $book_form->image_path }}" alt="本">
     @else
-        <img src="{{ asset('storage/images/no_image.png') }}" alt="本">
+        <img src="https://mymybookshelf.s3.ap-northeast-1.amazonaws.com/HWWjEYVYUEiFoH2VCEO65auhLfTvPeoGAUNbq4HH.png" alt="本">
     @endif
     
     <div class="deta_col">
