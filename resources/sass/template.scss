@@ -439,6 +439,11 @@ home.css
     max-width: 85%;
     }
 }
+@media screen and (max-width: 320px) {
+    #home-page .garally_col .books_col p {
+    font-size: 0.7rem;
+    }
+}
 
 /*===========================
 books-create.css
