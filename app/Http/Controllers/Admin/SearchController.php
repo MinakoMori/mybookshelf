@@ -46,7 +46,7 @@ class SearchController extends Controller
         $where = array();
         
         // SQLの組み上げ処理（sqlqct 部分）
-        $sql = 'SELECT * FROM `books`';
+        $sql = 'SELECT * FROM books';
         
         // SQLの組み上げ処理（whereの大外部分）
         if ($keyword_title != null) {
