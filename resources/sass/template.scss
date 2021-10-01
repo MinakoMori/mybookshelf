@@ -115,9 +115,15 @@ footer ul li a:focus {
 
 /*フッター*/
 footer {
-    width: 1140px;
+    position: fixed;
+    bottom: 0px;
+    z-index: 99;
+    width: 100%;
     margin: 0 auto;
-    padding: 0 15px 50px;
+    padding: 20px 15px;
+    font-size: 1rem;
+    background-color: #fff;
+    box-shadow: 0 -0.1rem 5px 0px rgb(0 0 0 / 8%);
 }
 footer .arrow {
     margin: 0 10px 10px auto;
@@ -177,11 +183,9 @@ footer ul li a img {
 }
 @media screen and (max-width: 640px) {
     footer {
-        position: fixed;
-        bottom: 0px;
-        z-index: 99;
         margin: 0;
         padding: 0;
+        box-shadow: none;
     }
     footer ul.row {
         padding: 10px 0 5px;
@@ -338,8 +342,8 @@ home.css
 #home-page .icon {
     display: block;
     position: fixed;
-    bottom: 80px;
-    right: 0;
+    bottom: 90px;
+    right: 50px;
     width: 70px;
     height: 70px;
     margin: 0 10px 10px 0;
@@ -434,6 +438,10 @@ home.css
 }
 
 @media screen and (max-width: 640px) {
+    #home-page .icon {
+    bottom: 80px;
+    right: 0;
+    }
     #home-page .garally_col .books_col p {
     top: 5px;
     max-width: 85%;

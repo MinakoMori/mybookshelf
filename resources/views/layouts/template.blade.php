@@ -74,9 +74,6 @@
     
     <!-- フッター -->
     <footer>
-        <!-- <div class="arrow">
-            <a href="{{ url('#all-content') }}">トップに戻る</a>
-        </div> -->
         <ul class="row">
             <li class="col">
                 <a href="{{ url('admin/home') }}">
