@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Book;
 use App\Tag;
+use Storage;
 
 class EditController extends Controller
 {
