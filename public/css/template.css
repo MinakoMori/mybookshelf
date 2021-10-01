@@ -188,11 +188,6 @@ footer ul:after {
 
 footer ul li {
   text-align: center;
-  border-right: 1px solid #973132;
-}
-
-footer ul li:last-child {
-  border-right: none;
 }
 
 footer ul li:before {
