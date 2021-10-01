@@ -65,7 +65,9 @@
     <div class="garally_col row">
         @foreach($posts as $post)
             <div class="col-4 books_col">
-                <!-- <p>{{ $post->title }}</p> -->
+                @if (is_null($post->image_path))
+                <p>{{ str_limit($post->title , 30) }}</p>
+                @endif
                 <a href="{{ url('admin/books/deta?id=' . $post->id) }}">
                     @if (isset($post->image_path))
                     <img src="{{ $post->image_path }}" alt="{{ $post->title }}">

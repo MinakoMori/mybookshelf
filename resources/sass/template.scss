@@ -409,12 +409,23 @@ home.css
     color: #3490dc;
 }
 
-/*画像*/
+/*ギャラリー*/
 #home-page .garally_col {
     margin: 10px 0 0;
 }
 #home-page .garally_col .books_col {
+    position: relative;
     padding: 0;
+}
+#home-page .garally_col .books_col p {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    max-width: 92%;
+    padding: 3px 10px;
+    color: #fff;
+    background-color: #973132;
+    border-radius: 10px;
 }
 #home-page .garally_col .books_col img {
     object-fit: cover;
@@ -422,6 +433,11 @@ home.css
     height: 100%;
 }
 
+@media screen and (max-width: 640px) {
+    #home-page .garally_col .books_col p {
+    max-width: 85%;
+    }
+}
 
 /*===========================
 books-create.css
